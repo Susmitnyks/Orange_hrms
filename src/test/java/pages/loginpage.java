@@ -27,7 +27,7 @@ public class loginpage extends basepage{
         sendKeys("admin123",password);
     }
 
-    public void submit()
+    public void submit_btn()
     {
         click(submit);
     }

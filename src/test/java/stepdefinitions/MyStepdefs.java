@@ -20,7 +20,7 @@ public class MyStepdefs {
 
     @And("User clicks on the submit button")
     public void userClicksOnTheSubmitButton() {
-        lp.submit();
+        lp.submit_btn();
     }
 
     @Then("User is navigated to home page")
