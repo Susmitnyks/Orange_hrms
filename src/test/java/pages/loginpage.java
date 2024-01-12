@@ -13,7 +13,7 @@ public class loginpage extends basepage{
     String username="//input[@name='username']";
     String password="//input[@name='password']";
     String submit="//button[text()=' Login ']";
-    String dashboard="//*[@id=\"app\"]/div[1]/div[1]/header/div[1]/div[1]/span/h6";
+    String dashboard="//*[@class=\"oxd-text oxd-text--h6 oxd-topbar-header-breadcrumb-module\"]";
     public void launch()
     {
         driver.manage().window().maximize();
