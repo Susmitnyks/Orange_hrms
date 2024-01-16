@@ -1,15 +1,26 @@
 package pages;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.Date;
 
 public class basepage {
-    WebDriver driver=new ChromeDriver();
+    WebDriver driver;
+
+    public basepage(WebDriver driver) { // basepage constructor
+        this.driver = driver;
+    }
 
     // common sendkeys method
     public void sendKeys(String text,String xp)
@@ -31,5 +42,20 @@ public class basepage {
         } catch (org.openqa.selenium.TimeoutException e) {
             System.out.println("Timed out waiting for element with XPath: " + xpath);
         }
+    }
+
+    // Takes screenshots
+    public void screenShot() throws IOException, InterruptedException, IOException {
+        File scr=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        File dest= new File("C:\\Users\\SusmitSurwade\\IdeaProjects\\Orange_hrms\\test-output\\Screenshots/screenshot_"+timestamp()+".png");
+        FileUtils.copyFile(scr, dest);
+        //driver: This is assumed to be an instance of the Selenium WebDriver.
+        //((TakesScreenshot) driver): It is casting the WebDriver instance to TakesScreenshot. The TakesScreenshot interface is implemented by WebDriver classes that support taking screenshots.
+        //.getScreenshotAs(OutputType.FILE): This method captures a screenshot of the current state of the WebDriver instance and returns it as a FILE type. The screenshot is stored in the File object referenced by the variable scr.
+        // dest is new file created on the given path in which timestamp fumction is used to get current date and time file name
+    }
+
+    public String timestamp() {
+        return new SimpleDateFormat("yyyy-MM-dd HH-mm-ss").format(new Date());
     }
 }
