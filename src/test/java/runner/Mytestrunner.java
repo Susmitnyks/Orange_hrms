@@ -16,7 +16,7 @@ import java.time.format.DateTimeFormatter;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = {"stepdefinitions"},
-        //tags = "@Myinfo_upload",
+        tags = "@Login_test_case_outline",
         monochrome = true,
         dryRun = false,
         //plugin = {"pretty","html:target/cucumber-html-report","json:cucumber.json" }
@@ -52,7 +52,7 @@ public class Mytestrunner {
             email.attach(attachment);
 
             // Send the email
-            email.send();
+            //email.send();
             System.out.println("Email sent successfully.");
         } catch (EmailException e) {
             e.printStackTrace();
