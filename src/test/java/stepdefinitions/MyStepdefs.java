@@ -36,7 +36,7 @@ public class MyStepdefs {
 
     @Then("User is navigated to home page")
     public void userIsNavigatedToHomePage() throws InterruptedException, IOException {
-        lp.verifyHomepage();
+        lp.verifyHomepage_login();
     }
 
     @Given("User is logged in into application")
@@ -44,7 +44,7 @@ public class MyStepdefs {
         lp.launch();
         lp.usr_pass();
         lp.submit_btn();
-        lp.verifyHomepage();
+        lp.verifyHomepage_login();
     }
 
     @When("User clicks on logout button")
@@ -54,7 +54,7 @@ public class MyStepdefs {
 
     @Then("User is navigated back to login screen")
     public void userIsNavigatedBackToLoginScreen() {
-        lp.verify_homepage();
+        lp.verify_homepage_logout();
     }
 
     @Given("User is on the My info page")
@@ -68,5 +68,21 @@ public class MyStepdefs {
     @When("User clicks on the profile picture and clicks on + icon and Upload profile picture")
     public void userClicksOnTheProfilePictureAndClicksOnIconAndUploadProfilePicture() throws InterruptedException, FindFailed, IOException {
      info.upload_pic();
+    }
+
+
+    @When("User will enters {string} and {string}")
+    public void userWillEntersAnd(String username, String password) {
+     lp.usr_pass_outline(username,password);
+    }
+
+    @Then("User lands on the homepage")
+    public void userLandsOnTheHomepage() throws IOException, InterruptedException {
+        lp.verifyHomepage_login();
+    }
+
+    @And("User do logout")
+    public void userDoLogout() {
+        lp.log_out();
     }
 }

@@ -5,7 +5,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -45,10 +44,12 @@ public class basepage {
     }
 
     // Takes screenshots
-    public void screenShot() throws IOException, InterruptedException, IOException {
+    public String screenShot() throws IOException, InterruptedException, IOException {
         File scr=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         File dest= new File("C:\\Users\\SusmitSurwade\\IdeaProjects\\Orange_hrms\\test-output\\Screenshots/screenshot_"+timestamp()+".png");
         FileUtils.copyFile(scr, dest);
+        String fail="Test case fail";
+        return fail;
         //driver: This is assumed to be an instance of the Selenium WebDriver.
         //((TakesScreenshot) driver): It is casting the WebDriver instance to TakesScreenshot. The TakesScreenshot interface is implemented by WebDriver classes that support taking screenshots.
         //.getScreenshotAs(OutputType.FILE): This method captures a screenshot of the current state of the WebDriver instance and returns it as a FILE type. The screenshot is stored in the File object referenced by the variable scr.

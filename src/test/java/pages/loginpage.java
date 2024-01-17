@@ -39,25 +39,32 @@ public class loginpage extends basepage{
         sendKeys("admin123",password);
     }
 
+    public void usr_pass_outline(String user_name,String pass_word)
+    {
+        explicitWait(driver,username, Duration.ofSeconds(10));
+        sendKeys(user_name,username);
+        sendKeys(pass_word,password);
+    }
+
     public void submit_btn()
     {
         click(submit);
     }
 
-    public void verifyHomepage() throws InterruptedException, IOException {
+    public void verifyHomepage_login() throws InterruptedException, IOException {
         explicitWait(driver,dashboard,Duration.ofSeconds(4));
         String db=driver.findElement(By.xpath(dashboard)).getText();
-        Assert.assertEquals("Dashboard",db);
-        screenShot();
-        driver.quit();
+        Assert.assertEquals(screenShot(),"Dashboard",db);
+        //driver.quit();
     }
     public void log_out()
     {
         explicitWait(driver,drop_down, Duration.ofSeconds(10));
         driver.findElement(By.xpath(drop_down)).click();
         driver.findElement(By.xpath(log_out)).click();
+        driver.quit();
     }
-    public void verify_homepage()
+    public void verify_homepage_logout()
     {
         String exp="OrangeHRM";
         String title=driver.getTitle();
