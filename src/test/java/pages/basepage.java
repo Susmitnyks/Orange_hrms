@@ -1,6 +1,8 @@
 package pages;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -9,6 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
@@ -59,4 +62,20 @@ public class basepage {
     public String timestamp() {
         return new SimpleDateFormat("yyyy-MM-dd HH-mm-ss").format(new Date());
     }
+
+    public String getcell(int row_no, int cell_no) throws IOException {
+        FileInputStream fs = new FileInputStream("C:\\Users\\SusmitSurwade\\Documents\\selenium\\test.xlsx");
+        //Creating a workbook
+        XSSFWorkbook workbook = new XSSFWorkbook(fs);
+        XSSFSheet sheet = workbook.getSheetAt(0);
+        String value= String.valueOf(sheet.getRow(row_no).getCell(cell_no));
+        return value;
+    }
+
+    public void explicit_wait(String xpath)
+    {
+        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(30));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+    }
 }
+

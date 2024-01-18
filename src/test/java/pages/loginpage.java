@@ -16,7 +16,7 @@ public class loginpage extends basepage{
 
     String drop_down="//*[@class=\"oxd-userdropdown-img\"]";
     String log_out="//a[@class='oxd-userdropdown-link' and text()='Logout']";
-    String hrm_url="https://opensource-demo.orangehrmlive.com/web/index.php/auth/login";
+    String hrm_url="https://opensource-demo.orangehrmlive.com";
     String username="//input[@name='username']";
     String password="//input[@name='password']";
     String submit="//button[text()=' Login ']";
