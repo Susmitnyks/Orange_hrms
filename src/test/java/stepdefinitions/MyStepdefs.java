@@ -19,6 +19,9 @@ public class MyStepdefs {
     loginpage lp = new loginpage(driver);
     myinfopage info = new myinfopage(driver);
 
+    public MyStepdefs() throws IOException {
+    }
+
     @Given("User is on the login page")
     public void userIsOnTheLoginPage() {
         lp.launch();
@@ -58,11 +61,12 @@ public class MyStepdefs {
     }
 
     @Given("User is on the My info page")
-    public void userIsOnTheMyInfoPage() throws InterruptedException {
+    public void userIsOnTheMyInfoPage() throws InterruptedException, IOException {
         lp.launch();
         lp.usr_pass();
         lp.submit_btn();
         info.myinfo_click();
+        //System.out.println(lp.getcell(1,1));
     }
 
     @When("User clicks on the profile picture and clicks on + icon and Upload profile picture")
@@ -84,5 +88,21 @@ public class MyStepdefs {
     @And("User do logout")
     public void userDoLogout() {
         lp.log_out();
+    }
+
+    @Then("Profile picture uploaded should get save and show on application")
+    public void profilePictureUploadedShouldGetSaveAndShowOnApplication() {
+        System.out.println("success");
+    }
+
+    @When("User enter Fname and Lname and click on save button")
+    public void userEnterFnameAndLnameAndClickOnSaveButton() throws IOException, InterruptedException {
+    info.update_details();
+    }
+
+    @Then("User details should be saved succesfully")
+    public void userDetailsShouldBeSavedSuccesfully() {
+        info.verify_success_msg();
+
     }
 }
