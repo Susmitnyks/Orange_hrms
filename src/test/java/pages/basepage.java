@@ -8,7 +8,9 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.python.antlr.ast.Str;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -77,5 +79,12 @@ public class basepage {
         WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(30));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
     }
+
+    public void dropdown_list(String xpath_element,String xpath_value)
+    {
+        driver.findElement(By.xpath(xpath_element)).click();
+        driver.findElement(By.xpath(xpath_value)).click();
+    }
+
 }
 

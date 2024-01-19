@@ -95,14 +95,28 @@ public class MyStepdefs {
         System.out.println("success");
     }
 
-    @When("User enter Fname and Lname and click on save button")
-    public void userEnterFnameAndLnameAndClickOnSaveButton() throws IOException, InterruptedException {
-    info.update_details();
-    }
 
     @Then("User details should be saved succesfully")
     public void userDetailsShouldBeSavedSuccesfully() {
         info.verify_success_msg();
 
+    }
+
+
+    @And("User update his birthdate")
+    public void userUpdateHisBirthdate() throws InterruptedException, IOException {
+        info.birth_date();
+
+    }
+
+
+    @When("User enter Fname and Lname")
+    public void userEnterFnameAndLname() throws IOException, InterruptedException {
+        info.update_details();
+    }
+
+    @And("User selects his nationality and click on save button")
+    public void userSelectsHisNationalityAndClickOnSaveButton() throws IOException, InterruptedException {
+        info.nation();
     }
 }
