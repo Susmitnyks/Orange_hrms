@@ -8,6 +8,8 @@ Feature: Test Edit My info functionality
   @Myinfo_updatedetails
   Scenario: Verify successful profile data update
     Given User is on the My info page
-    When User enter Fname and Lname and click on save button
+    When User enter Fname and Lname
+    And  User update his birthdate
+    And  User selects his nationality and click on save button
     Then User details should be saved succesfully
 
