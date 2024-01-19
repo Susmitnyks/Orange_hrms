@@ -62,7 +62,6 @@ public class loginpage extends basepage{
         explicitWait(driver,drop_down, Duration.ofSeconds(10));
         driver.findElement(By.xpath(drop_down)).click();
         driver.findElement(By.xpath(log_out)).click();
-        driver.quit();
     }
     public void verify_homepage_logout()
     {
