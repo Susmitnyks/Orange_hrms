@@ -6,7 +6,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.sikuli.script.FindFailed;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import pages.basepage;
 import pages.loginpage;
 import pages.myinfopage;
 
@@ -14,8 +15,9 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class MyStepdefs {
-    WebDriver driver = new ChromeDriver();
+public class MyStepdefs{
+
+    WebDriver driver=new ChromeDriver();
     loginpage lp = new loginpage(driver);
     myinfopage info = new myinfopage(driver);
 
@@ -66,11 +68,10 @@ public class MyStepdefs {
         lp.usr_pass();
         lp.submit_btn();
         info.myinfo_click();
-        //System.out.println(lp.getcell(1,1));
     }
 
     @When("User clicks on the profile picture and clicks on + icon and Upload profile picture")
-    public void userClicksOnTheProfilePictureAndClicksOnIconAndUploadProfilePicture() throws InterruptedException, FindFailed, IOException {
+    public void userClicksOnTheProfilePictureAndClicksOnIconAndUploadProfilePicture() throws InterruptedException, IOException {
      info.upload_pic();
     }
 

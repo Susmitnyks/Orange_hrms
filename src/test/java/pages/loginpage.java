@@ -22,10 +22,7 @@ public class loginpage extends basepage{
     String submit="//button[text()=' Login ']";
     String dashboard="//*[@class=\"oxd-text oxd-text--h6 oxd-topbar-header-breadcrumb-module\"]";
 
-    public WebDriver get_driver()
-    {
-        return driver;
-    }
+
     public void launch()
     {
         driver.manage().window().maximize();
