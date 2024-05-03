@@ -19,12 +19,10 @@ import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
 
-public class basepage {
-
+public class basepage{
 
     WebDriver driver;
-    //WebDriver driver;
-    public basepage(WebDriver driver) { // basepage constructor
+   public basepage(WebDriver driver) { // basepage constructor
         this.driver = driver;
     }
 
@@ -74,6 +72,7 @@ public class basepage {
         XSSFSheet sheet = workbook.getSheetAt(0);
         String value= String.valueOf(sheet.getRow(row_no).getCell(cell_no));
         return value;
+
     }
 
 

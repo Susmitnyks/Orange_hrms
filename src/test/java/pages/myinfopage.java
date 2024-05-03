@@ -8,8 +8,9 @@ import java.io.IOException;
 import java.time.Duration;
 
 public class myinfopage extends basepage{
-    public myinfopage(WebDriver driver) throws IOException {
-      super(driver); // calls constructor of super class.
+ public myinfopage(WebDriver driver) throws IOException {
+     super(driver); // calls constructor of super class.
+
   }
     String fname_field="//input[@class='oxd-input oxd-input--focus oxd-input--error orangehrm-firstname']";
     String fname_focus="//input[@class='oxd-input oxd-input--focus orangehrm-firstname']";
@@ -32,6 +33,8 @@ public class myinfopage extends basepage{
 
     String nationality_drp="//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/form/div[3]/div[1]/div[1]/div/div[2]/div/div/div[2]/i";
 
+
+
     public void myinfo_click() throws InterruptedException {
         implicit_wait();
         driver.findElement(By.xpath(myinfo_menu)).click();
@@ -43,9 +46,8 @@ public class myinfopage extends basepage{
         implicit_wait();
         WebElement addfile= driver.findElement(By.xpath(plus_button));
         addfile.click();
-        implicit_wait();
         Runtime.getRuntime().exec("C:\\Users\\SusmitSurwade\\Documents\\file.exe");
-        implicit_wait();
+        Thread.sleep(4000);
         driver.findElement(By.xpath(save_btn)).click();
     }
 
@@ -60,11 +62,11 @@ public class myinfopage extends basepage{
         driver.findElement(By.xpath(lname_field)).sendKeys(lname_value);
     }
 
-    public void verify_success_msg()
-    {
+    public void verify_success_msg() throws InterruptedException {
+
         explicitWait(driver,succes_msg, Duration.ofSeconds(10));
-       WebElement msg=driver.findElement(By.xpath(succes_msg));
-       Assert.assertTrue(msg.isDisplayed());
+        WebElement msg=driver.findElement(By.xpath(succes_msg));
+        Assert.assertTrue(msg.isDisplayed());
     }
 
     public void birth_date() throws InterruptedException, IOException {

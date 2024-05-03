@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import pages.basepage;
+import pages.driver_factory;
 import pages.loginpage;
 import pages.myinfopage;
 
@@ -15,14 +16,15 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class MyStepdefs{
+public class MyStepdefs extends driver_factory {
 
-    WebDriver driver=new ChromeDriver();
+    WebDriver driver=getdriver();
     loginpage lp = new loginpage(driver);
     myinfopage info = new myinfopage(driver);
 
     public MyStepdefs() throws IOException {
     }
+
 
     @Given("User is on the login page")
     public void userIsOnTheLoginPage() {
@@ -30,7 +32,7 @@ public class MyStepdefs{
     }
 
     @When("User enters username and password")
-    public void userEntersUsernameAndPassword() {
+    public void userEntersUsernameAndPassword() throws IOException {
         lp.usr_pass();
     }
 
@@ -92,13 +94,14 @@ public class MyStepdefs{
     }
 
     @Then("Profile picture uploaded should get save and show on application")
-    public void profilePictureUploadedShouldGetSaveAndShowOnApplication() {
-        System.out.println("success");
+    public void profilePictureUploadedShouldGetSaveAndShowOnApplication() throws InterruptedException {
+        //System.out.println("success");
+        info.verify_success_msg();
     }
 
 
     @Then("User details should be saved succesfully")
-    public void userDetailsShouldBeSavedSuccesfully() {
+    public void userDetailsShouldBeSavedSuccesfully() throws InterruptedException {
         info.verify_success_msg();
 
     }
