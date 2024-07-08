@@ -7,10 +7,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.python.antlr.ast.Str;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -19,10 +19,10 @@ import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
 
-public class basepage {
-    WebDriver driver;
+public class basepage{
 
-    public basepage(WebDriver driver) { // basepage constructor
+    WebDriver driver;
+   public basepage(WebDriver driver) { // basepage constructor
         this.driver = driver;
     }
 
@@ -72,18 +72,19 @@ public class basepage {
         XSSFSheet sheet = workbook.getSheetAt(0);
         String value= String.valueOf(sheet.getRow(row_no).getCell(cell_no));
         return value;
+
     }
 
-    public void explicit_wait(String xpath)
-    {
-        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(30));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
-    }
 
     public void dropdown_list(String xpath_element,String xpath_value)
     {
         driver.findElement(By.xpath(xpath_element)).click();
         driver.findElement(By.xpath(xpath_value)).click();
+    }
+
+    public void implicit_wait()
+    {
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
 }
