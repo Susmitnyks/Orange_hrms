@@ -9,10 +9,10 @@ import java.io.IOException;
 import java.time.Duration;
 
 public class loginpage extends basepage{
-
-    public loginpage(WebDriver driver) {
+   public loginpage(WebDriver driver) {
         super(driver);  //calls constructor of super class.
-    }
+
+   }
 
     String drop_down="//*[@class=\"oxd-userdropdown-img\"]";
     String log_out="//a[@class='oxd-userdropdown-link' and text()='Logout']";
@@ -22,21 +22,17 @@ public class loginpage extends basepage{
     String submit="//button[text()=' Login ']";
     String dashboard="//*[@class=\"oxd-text oxd-text--h6 oxd-topbar-header-breadcrumb-module\"]";
 
-    public WebDriver get_driver()
-    {
-        return driver;
-    }
+
     public void launch()
     {
         driver.manage().window().maximize();
         driver.get(hrm_url);
     }
 
-   public void usr_pass()
-    {
-        explicitWait(driver,username, Duration.ofSeconds(10));
-        sendKeys("Admin",username);
-        sendKeys("admin123",password);
+   public void usr_pass() throws IOException {
+        explicitWait(driver,username, Duration.ofSeconds(15));
+        sendKeys(getcell(1,5),username);
+        sendKeys(getcell(1,6),password);
     }
 
     public void usr_pass_outline(String user_name,String pass_word)
@@ -62,7 +58,6 @@ public class loginpage extends basepage{
         explicitWait(driver,drop_down, Duration.ofSeconds(10));
         driver.findElement(By.xpath(drop_down)).click();
         driver.findElement(By.xpath(log_out)).click();
-        driver.quit();
     }
     public void verify_homepage_logout()
     {
