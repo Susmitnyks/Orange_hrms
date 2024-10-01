@@ -53,8 +53,8 @@ public class loginpage extends basepage{
         explicitWait(driver,dashboard,Duration.ofSeconds(4));
         String db=driver.findElement(By.xpath(dashboard)).getText();
         Assert.assertEquals(screenShot(),"Dashboard",db);
-        //driver.quit();
-        driver.close();
+        driver.quit();
+        //driver.close();
     }
     public void log_out()
     {
@@ -67,8 +67,8 @@ public class loginpage extends basepage{
         String exp="OrangeHRM";
         String title=driver.getTitle();
         Assert.assertEquals("Test case fails",exp,title);
-        //driver.quit();
-        driver.close();
+        driver.quit();
+        //driver.close();
     }
 
 

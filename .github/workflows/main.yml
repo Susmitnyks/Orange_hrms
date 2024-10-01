@@ -30,7 +30,7 @@ jobs:
           sudo apt-get install -y google-chrome-stable
 
       - name: Run tests with Maven
-        run: mvn clean test
+        run: mvn clean test -q
 
       # Archive Spark HTML Test Report
       - name: Archive Spark HTML test reports
