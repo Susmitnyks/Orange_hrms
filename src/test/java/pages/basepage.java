@@ -51,7 +51,8 @@ public class basepage{
     // Takes screenshots
     public String screenShot() throws IOException, InterruptedException, IOException {
         File scr=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-        File dest= new File("C:\\Users\\SusmitSurwade\\IdeaProjects\\Orange_hrms\\test-output\\Screenshots/screenshot_"+timestamp()+".png");
+        File dest= new File("test-output/Screenshots/screenshot_"+timestamp()+".png");
+        //C:\Users\SusmitSurwade\IdeaProjects\Orange_hrms\test-output\Screenshots
         FileUtils.copyFile(scr, dest);
         String fail="Test case fail";
         return fail;
@@ -66,7 +67,7 @@ public class basepage{
     }
 
     public String getcell(int row_no, int cell_no) throws IOException {
-        FileInputStream fs = new FileInputStream("C:\\Users\\SusmitSurwade\\Documents\\selenium\\test.xlsx");
+        FileInputStream fs = new FileInputStream("utility/test.xlsx");
         //Creating a workbook
         XSSFWorkbook workbook = new XSSFWorkbook(fs);
         XSSFSheet sheet = workbook.getSheetAt(0);
