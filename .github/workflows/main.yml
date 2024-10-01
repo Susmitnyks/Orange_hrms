@@ -1,0 +1,42 @@
+name: Selenium BDD Test
+
+on:
+  workflow_dispatch:  # Enables manual triggering
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up JDK 11
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '11'  # Changed to Java 11
+
+      - name: Set up Maven
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '11'  # Changed to Java 11
+          cache: maven
+
+      - name: Install Chrome
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable
+
+      - name: Run tests with Maven
+        run: mvn clean test -q
+
+      # Archive Spark HTML Test Report
+      - name: Archive Spark HTML test reports
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: spark-html-report
+          path: test-output/SparkReport/Spark.html  # Correct path for Spark HTML report
+          if-no-files-found: warn

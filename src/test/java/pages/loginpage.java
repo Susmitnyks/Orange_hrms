@@ -46,14 +46,16 @@ public class loginpage extends basepage{
     {
         click(submit);
         System.out.println("success now here updated today now");
-        System.out.println("success now here updated today now on dev");
+        System.out.println("success now here updated today now on susmit");
+
     }
 
     public void verifyHomepage_login() throws InterruptedException, IOException {
         explicitWait(driver,dashboard,Duration.ofSeconds(4));
         String db=driver.findElement(By.xpath(dashboard)).getText();
         Assert.assertEquals(screenShot(),"Dashboard",db);
-        //driver.quit();
+        driver.quit();
+        //driver.close();
     }
     public void log_out()
     {
@@ -67,6 +69,7 @@ public class loginpage extends basepage{
         String title=driver.getTitle();
         Assert.assertEquals("Test case fails",exp,title);
         driver.quit();
+        //driver.close();
     }
 
 
