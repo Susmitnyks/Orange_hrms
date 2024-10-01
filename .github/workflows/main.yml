@@ -33,7 +33,7 @@ jobs:
         run: mvn clean test
 
       # Archive Spark HTML Test Report
-      - name: Archive Spark HTML test report
+      - name: Archive Spark HTML test reports
         if: always()
         uses: actions/upload-artifact@v3
         with:
