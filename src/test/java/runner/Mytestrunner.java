@@ -30,7 +30,8 @@ public class Mytestrunner {
             LocalDateTime now = LocalDateTime.now();
             // Create an email attachment
             EmailAttachment attachment = new EmailAttachment();
-            attachment.setPath("C:\\Users\\SusmitSurwade\\IdeaProjects\\Orange_hrms\\test-output\\SparkReport\\Spark.html"); // Replace with the actual path
+            //attachment.setPath("C:\\Users\\SusmitSurwade\\IdeaProjects\\Orange_hrms\\test-output\\SparkReport\\Spark.html"); // Replace with the actual path
+            attachment.setPath("test-output/SparkReport/Spark.html");
             attachment.setDisposition(EmailAttachment.ATTACHMENT);
             attachment.setDescription("Extent Report");
             attachment.setName("ExtentReport.html");
