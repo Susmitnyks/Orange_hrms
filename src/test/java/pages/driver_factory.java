@@ -4,7 +4,9 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -28,11 +30,20 @@ public class driver_factory {
         //return driver_factory;
         switch (browser){
             case "chrome":
-                driver=new ChromeDriver();
+                // Set ChromeOptions for headless mode
+                ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.addArguments("--headless");
+                chromeOptions.addArguments("--no-sandbox");
+                chromeOptions.addArguments("--disable-dev-shm-usage");
+                chromeOptions.addArguments("--disable-gpu");
+                driver=new ChromeDriver(chromeOptions);
                 break;
 
             case "firefox":
-                driver=new FirefoxDriver();
+                // Set FirefoxOptions for headless mode
+                FirefoxOptions firefoxOptions = new FirefoxOptions();
+                firefoxOptions.addArguments("--headless");
+                driver=new FirefoxDriver(firefoxOptions);
                 break;
         }
         return driver;
