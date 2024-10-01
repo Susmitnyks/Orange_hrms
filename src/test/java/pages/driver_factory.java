@@ -14,7 +14,7 @@ public class driver_factory {
     //public static WebDriver driver_factory;
 
     public static String getcell_value(int row_no, int cell_no) throws IOException {
-       FileInputStream fs = new FileInputStream("C:\\Users\\SusmitSurwade\\Documents\\selenium\\test.xlsx");
+       FileInputStream fs = new FileInputStream("utility/test.xlsx");
        //Creating a workbook
        XSSFWorkbook workbook = new XSSFWorkbook(fs);
        XSSFSheet sheet = workbook.getSheetAt(0);
