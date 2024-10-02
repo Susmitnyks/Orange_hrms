@@ -18,7 +18,7 @@ import java.time.format.DateTimeFormatter;
 
 public class MyStepdefs extends driver_factory {
 
-    WebDriver driver=getdriver();
+    WebDriver driver=driver_factory.getdriver(); // add classname
     loginpage lp = new loginpage(driver);
     myinfopage info = new myinfopage(driver);
 

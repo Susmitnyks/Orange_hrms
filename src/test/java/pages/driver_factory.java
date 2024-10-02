@@ -12,8 +12,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 public class driver_factory {
-    //public static WebDriver driver_factory = new ChromeDriver();
-    //public static WebDriver driver_factory;
+    public static WebDriver driver =null; // new added
 
     public static String getcell_value(int row_no, int cell_no) throws IOException {
        FileInputStream fs = new FileInputStream("utility/test.xlsx");
@@ -23,29 +22,29 @@ public class driver_factory {
        String value= String.valueOf(sheet.getRow(row_no).getCell(cell_no));
        return value;
    }
-    public WebDriver getdriver() throws IOException {
-        String browser=this.getcell_value(1,0);
-        WebDriver driver=null;
+    public static WebDriver getdriver() throws IOException { // made static
+        String browser = getcell_value(1, 0); // removed this
+        //WebDriver driver=null;
         //driver_factory=new ChromeDriver();
         //return driver_factory;
-        switch (browser){
+        switch (browser) {
             case "chrome":
                 // Set ChromeOptions for headless mode
-                ChromeOptions chromeOptions = new ChromeOptions();
-                chromeOptions.addArguments("--headless");
+            /*  ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.addArguments("--headless=old");
                 chromeOptions.addArguments("--no-sandbox");
                 chromeOptions.addArguments("--disable-dev-shm-usage");
                 chromeOptions.addArguments("--disable-gpu");
-                driver=new ChromeDriver(chromeOptions);
-                //driver=new ChromeDriver();
+                driver = new ChromeDriver(chromeOptions);*/
+                driver=new ChromeDriver();
                 break;
 
             case "firefox":
                 // Set FirefoxOptions for headless mode
-                FirefoxOptions firefoxOptions = new FirefoxOptions();
-                firefoxOptions.addArguments("--headless");
-                driver=new FirefoxDriver(firefoxOptions);
-                //driver=new FirefoxDriver();
+               /* FirefoxOptions firefoxOptions = new FirefoxOptions();
+                firefoxOptions.addArguments("--headless=old");
+                driver = new FirefoxDriver(firefoxOptions);*/
+                driver=new FirefoxDriver();
                 break;
         }
         return driver;

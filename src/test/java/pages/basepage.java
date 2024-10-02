@@ -21,7 +21,7 @@ import java.util.Date;
 
 public class basepage{
 
-    WebDriver driver;
+    protected WebDriver driver;
    public basepage(WebDriver driver) { // basepage constructor
         this.driver = driver;
     }
