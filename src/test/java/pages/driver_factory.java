@@ -30,21 +30,21 @@ public class driver_factory {
         switch (browser) {
             case "chrome":
                 // Set ChromeOptions for headless mode
-            /*  ChromeOptions chromeOptions = new ChromeOptions();
+                ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.addArguments("--headless=old");
                 chromeOptions.addArguments("--no-sandbox");
                 chromeOptions.addArguments("--disable-dev-shm-usage");
                 chromeOptions.addArguments("--disable-gpu");
-                driver = new ChromeDriver(chromeOptions);*/
-                driver=new ChromeDriver();
+                driver = new ChromeDriver(chromeOptions);
+                //driver=new ChromeDriver();
                 break;
 
             case "firefox":
                 // Set FirefoxOptions for headless mode
-               /* FirefoxOptions firefoxOptions = new FirefoxOptions();
+                FirefoxOptions firefoxOptions = new FirefoxOptions();
                 firefoxOptions.addArguments("--headless=old");
-                driver = new FirefoxDriver(firefoxOptions);*/
-                driver=new FirefoxDriver();
+                driver = new FirefoxDriver(firefoxOptions);
+                //driver=new FirefoxDriver();
                 break;
         }
         return driver;
